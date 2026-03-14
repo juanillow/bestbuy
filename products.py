@@ -1,5 +1,8 @@
 class Product:
+    """Represents a product in the store"""
+
     def __init__(self, name, price, quantity):
+        """Initialize product data and default active state"""
         if name == "":
             raise Exception("Name cannot be empty")
         if price < 0:
@@ -13,9 +16,11 @@ class Product:
         self.active = True
 
     def get_quantity(self):
+        """Return current product quantity"""
         return self.quantity
 
     def set_quantity(self, quantity):
+        """Set quantity and update active status"""
         if quantity < 0:
             raise Exception("Quantity cannot be negative")
 
@@ -26,18 +31,23 @@ class Product:
             self.activate()
 
     def is_active(self):
+        """Return True if product is active"""
         return self.active
 
     def activate(self):
+        """Activate the product"""
         self.active = True
 
     def deactivate(self):
+        """Deactivate the product"""
         self.active = False
 
     def show(self):
+        """Print product details"""
         print(f"{self.name}, Price: {self.price}, Quantity: {self.quantity}")
 
     def buy(self, quantity):
+        """Buy units and return total purchase price"""
         if quantity <= 0:
             raise Exception("Quantity to buy must be positive")
         if not self.active:
@@ -53,6 +63,7 @@ class Product:
 
 
 def main():
+    """Run a basic Product usage example"""
     bose = Product("Bose QuietComfort Earbuds", price=250, quantity=500)
     mac = Product("MacBook Air M2", price=1450, quantity=100)
 
